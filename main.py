@@ -13,7 +13,7 @@ import smtplib
 # today = (today_month, today_day)
 now = dt.datetime.now()
 today = (now.month, now.day)
-print("today -->", today)
+# print("today -->", today)
 import random
 
 # HINT 2: Use pandas to read the birthdays.csv
@@ -34,9 +34,10 @@ if today in birthdays_dict:
         letter_with_name = letter.replace("[NAME]", birthday_person["name"])
 
     # Send the letter generated in step 3 to that person's email address.
-    my_email = "mariontestpython@gmail.com"
+    my_email = YOUR_EMAIL
     gmail_server = "smtp.gmail.com"
-    my_password = "edtc zjnh cicq zmlt"
+    # declare an application in your Google account settings, security section --> 2-step verification: Google will give you a unique password
+    my_password = YOUR_PASSWORD 
 
     with smtplib.SMTP(gmail_server, 587) as connection:
         connection.starttls()
