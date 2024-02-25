@@ -14,7 +14,7 @@ Il crée un tuple à partir du mois et du jour du jour actuel en utilisant le mo
 
 ## Configuration & Installation
 - Python : Version 3.9.6
-- Bibliothèques Python : pandas, datetime, smtplib, time
+- Bibliothèques Python : pandas, datetime, smtplib
 - Paramètres de Courriel : Fournissez votre adresse courriel Gmail (mon_courriel) et votre mot de passe de l'application (mon_mot_de_passe) pour permettre au script d'envoyer des courriels.
 
 ## Exécution
