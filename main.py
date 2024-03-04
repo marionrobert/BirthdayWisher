@@ -13,8 +13,9 @@ import smtplib
 # today = (today_month, today_day)
 now = dt.datetime.now()
 today = (now.month, now.day)
-# print("today -->", today)
+print("today -->", today)
 import random
+import os
 
 # HINT 2: Use pandas to read the birthdays.csv
 data = pandas.read_csv("birthdays.csv")
@@ -34,15 +35,14 @@ if today in birthdays_dict:
         letter_with_name = letter.replace("[NAME]", birthday_person["name"])
 
     # Send the letter generated in step 3 to that person's email address.
-    my_email = YOUR_EMAIL
-    gmail_server = "smtp.gmail.com"
-    # declare an application in your Google account settings, security section --> 2-step verification: Google will give you a unique password
-    my_password = YOUR_PASSWORD 
+    MY_EMAIL = os.environ["MY_EMAIL"]
+    GMAIL_SERVER = "smtp.gmail.com"
+    MY_PASSWORD = os.environ["MY_PASSWORD"]
 
-    with smtplib.SMTP(gmail_server, 587) as connection:
+    with smtplib.SMTP(GMAIL_SERVER, 587) as connection:
         connection.starttls()
-        connection.login(my_email, my_password)
-        connection.sendmail(from_addr=my_email,
+        connection.login(MY_EMAIL, MY_PASSWORD)
+        connection.sendmail(from_addr=MY_EMAIL,
                             to_addrs=birthday_person["email"],
                             msg=f"Subject:Open it!\n\n{letter_with_name}")
 
